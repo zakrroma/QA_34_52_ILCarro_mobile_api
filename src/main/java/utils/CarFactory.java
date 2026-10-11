@@ -1,6 +1,6 @@
 package utils;
 
-import dto.CarData;
+import dto.CarDto;
 import net.datafaker.Faker;
 
 import java.time.LocalDate;
@@ -8,8 +8,8 @@ import java.time.LocalDate;
 public class CarFactory {
     static Faker faker = new Faker();
 
-    public static CarData positiveCar() {
-        CarData car = CarData.builder()
+    public static CarDto positiveCar() {
+        CarDto car = CarDto.builder()
                 .serialNumber(faker.vehicle().licensePlate())
                 .city("Ashkelon")
                 .manufacture(faker.vehicle().manufacturer())
