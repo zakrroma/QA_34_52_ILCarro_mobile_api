@@ -1,0 +1,61 @@
+package data_providers;
+
+import dto.UserDto;
+import org.testng.annotations.DataProvider;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class UserDataProvider {
+    @DataProvider
+    public Iterator<UserDto> wrongPasswordRegDataProvider() {
+        List<UserDto> list = new ArrayList<>();
+        try (BufferedReader bufferedReader = new BufferedReader(
+                new FileReader("src/test/resources/" +
+                        "reg_data_wrong_password.csv"))) {
+            String line = bufferedReader.readLine();
+            while (line != null) {
+                String[] row = line.split(",");
+                list.add(UserDto.builder()
+                        .username(row[0])
+                        .password(row[1])
+                        .firstName(row[2])
+                        .lastName(row[3])
+                        .build());
+                line = bufferedReader.readLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("created an exception");
+        }
+        return list.listIterator();
+    }
+
+    @DataProvider
+    public Iterator<UserDto> wrongEmailRegDataProvider() {
+        List<UserDto> list = new ArrayList<>();
+        try (BufferedReader bufferedReader = new BufferedReader(
+                new FileReader("src/test/resources/" +
+                        "reg_data_wrong_email.csv"))) {
+            String line = bufferedReader.readLine();
+            while (line != null) {
+                String[] row = line.split(",");
+                list.add(UserDto.builder()
+                        .username(row[0])
+                        .password(row[1])
+                        .firstName(row[2])
+                        .lastName(row[3])
+                        .build());
+                line = bufferedReader.readLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("created an exception");
+        }
+        return list.listIterator();
+    }
+}
