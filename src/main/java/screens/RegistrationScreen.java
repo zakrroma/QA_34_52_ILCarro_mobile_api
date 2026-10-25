@@ -28,7 +28,7 @@ public class RegistrationScreen extends BaseScreen {
     @AndroidFindBy(id = "com.telran.ilcarro:id/regBtn")
     WebElement btnSubmit;
 
-    public void fillRegForm(UserDto user) {
+    public void fillRegistrationForm(UserDto user) {
         inputName.sendKeys(user.getFirstName());
         inputLastName.sendKeys(user.getLastName());
         inputEmail.sendKeys(user.getUsername());
@@ -36,10 +36,10 @@ public class RegistrationScreen extends BaseScreen {
     }
 
     public void tapCheckboxAgree() {
-        clickWait(checkBoxAgree);
+        checkBoxAgree.click();
     }
 
-    public void tapSubmit() {
-        clickWait(btnSubmit);
+    public void tapBtnSubmit() {
+        btnSubmit.click();
     }
 }

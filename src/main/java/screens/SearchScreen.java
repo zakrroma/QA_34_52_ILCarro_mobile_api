@@ -25,10 +25,21 @@ public class SearchScreen extends BaseScreen {
     @AndroidFindBy(xpath = "//*[@resource-id='com.telran.ilcarro:id/title'" +
             "and @text='Registration']")
     WebElement btnRegistration;
-/*
+
+    @AndroidFindBy(xpath = "//*[@resource-id='com.telran.ilcarro:id/title'" +
+            " and @text='My Cars']")
+    WebElement btnMyCars;
+
+    @AndroidFindBy(xpath = "//*[@resource-id='com.telran.ilcarro:id/title'" +
+            " and @text='Logout']")
+    WebElement btnLogout;
+
     @AndroidFindBy(xpath = "//android.widget.Toast[@text='Registration success!']")
     WebElement messageRegistrationSuccess;
-*/
+
+    @AndroidFindBy(xpath = "//android.widget.Toast[@text='Login success!']")
+    WebElement messageLoginSuccess;
+
 
     public void tapBtnDots() {
         clickWait(btnDots);
@@ -42,8 +53,24 @@ public class SearchScreen extends BaseScreen {
         clickWait(btnRegistration);
     }
 
+    public void tapBtnMyCars() {
+        clickWait(btnMyCars);
+    }
 
-    public boolean checkMessageRegistrationSuccess() {
+    public void tapBtnLogout() {
+        clickWait(btnLogout);
+    }
+
+    public boolean checkTextInMessageRegistrationSuccess(String text) {
+        return isTextInElementPresent(messageRegistrationSuccess, text);
+    }
+
+    public boolean checkTextInMessageLoginSuccess(String text) {
+        return isTextInElementPresent(messageLoginSuccess, text);
+    }
+
+    /*
+    public boolean checkMessagePresence() {
         try {
             new WebDriverWait(driver, Duration.ofSeconds(10))
                     .until(ExpectedConditions.presenceOfElementLocated(
@@ -54,4 +81,5 @@ public class SearchScreen extends BaseScreen {
             throw new TimeoutException();
         }
     }
+    */
 }
