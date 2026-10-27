@@ -16,7 +16,7 @@ public class CarFactory {
                 .model(faker.vehicle().model())
                 .year(Integer.toString(faker.number()
                         .numberBetween(0, LocalDate.now().getYear())))
-                .fuel(("Petrol"))
+                .fuel(faker.options().option("Diesel","Hybrid","Electric","Gas"))
                 .seats(faker.number().numberBetween(2, 20))
                 .carClass(faker.vehicle().carType())
                 .pricePerDay(faker.number()

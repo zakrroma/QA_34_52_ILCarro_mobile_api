@@ -39,22 +39,6 @@ public class AddCarScreen extends BaseScreen {
     @AndroidFindBy(id = "com.telran.ilcarro:id/text1")
     WebElement inputFuelType;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=" +
-            "'com.telran.ilcarro:id/text1' and @text='Gas']")
-    WebElement optionGas;
-
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=" +
-            "'com.telran.ilcarro:id/text1' and @text='Diesel']")
-    WebElement optionDiesel;
-
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=" +
-            "'com.telran.ilcarro:id/text1' and @text='Hybrid']")
-    WebElement optionHybrid;
-
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=" +
-            "'com.telran.ilcarro:id/text1' and @text='Electric']")
-    WebElement optionElectric;
-
     @AndroidFindBy(id = "com.telran.ilcarro:id/editYear")
     WebElement inputYear;
 
@@ -74,7 +58,7 @@ public class AddCarScreen extends BaseScreen {
         inputCity.sendKeys(car.getCity());
         inputPrice.sendKeys(car.getPricePerDay()+"");
         inputCarClass.sendKeys(car.getCarClass());
-        chooseFuelType("Gas");
+        chooseFuelType(car.getFuel());
         inputYear.sendKeys(car.getYear());
         inputSeats.sendKeys(car.getSeats()+"");
         inputAbout.sendKeys(car.getAbout());

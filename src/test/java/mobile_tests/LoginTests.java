@@ -38,4 +38,30 @@ public class LoginTests extends TestBase {
         Assert.assertTrue(searchScreen
                 .checkTextInMessageLoginSuccess("Login success!"));
     }
+
+    @Test
+    public void loginWrongEmailNegativeTest() {
+        user.setUsername("zxc@vb.nm");
+
+        loginScreen.fillLoginForm(user);
+        loginScreen.tapBtnSubmit();
+
+        errorScreen =  new ErrorScreen(driver);
+
+        Assert.assertTrue(errorScreen
+                .checkTextInMessage("Login or Password incorrect"));
+    }
+
+    @Test
+    public void loginWrongPasswordNegativeTest() {
+        user.setPassword("Pass45&67");
+
+        loginScreen.fillLoginForm(user);
+        loginScreen.tapBtnSubmit();
+
+        errorScreen =  new ErrorScreen(driver);
+
+        Assert.assertTrue(errorScreen
+                .checkTextInMessage("Login or Password incorrect"));
+    }
 }
