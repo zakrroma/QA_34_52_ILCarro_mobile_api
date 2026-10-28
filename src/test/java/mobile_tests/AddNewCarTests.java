@@ -16,7 +16,7 @@ public class AddNewCarTests extends TestBase {
     CarDto car;
 
     @BeforeMethod
-    public void goToLoginScreen() {
+    public void goToAddCarScreen() {
         new SplashScreen(driver).goToSearchScreen();
 
         SearchScreen searchScreen = new SearchScreen(driver);

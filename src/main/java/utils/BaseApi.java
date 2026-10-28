@@ -9,6 +9,7 @@ public interface BaseApi {
     // Car Controller
     String ADD_CAR_URL = "/v1/cars";
     String SEARCH_URL = "/v1/cars/search";
+    String GET_CARS_URL = "/v1/cars/my";
 
 
 }
